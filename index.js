@@ -1,5 +1,5 @@
 import { NativeModules } from "react-native";
 
-const ReactNativeVolumeController = NativeModules.ReactNativeVolumeController;
+const RNVolumeControl = NativeModules.ReactNativeVolumeController;
 
-export default ReactNativeVolumeController;
+export default RNVolumeControl;
