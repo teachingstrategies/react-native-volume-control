@@ -22,7 +22,7 @@ RCT_EXPORT_MODULE()
 
 - (NSArray<NSString *> *)supportedEvents
 {
-    return @[@"RNVolumeEvent"];
+    return @[@"VolumeChanged"];
 }
 
 - (instancetype)init{
