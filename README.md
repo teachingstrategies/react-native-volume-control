@@ -46,18 +46,25 @@ This component only exposes an api to update device volume and listens for `Volu
 
 import VolumeControl, {
   VolumeControlEvents
-} from "react-native-volume-controller";
+} from "react-native-volume-control";
 import Slider from '@react-native-community/slider';
 
 class App extends React.Component {
+  state = {
+    volume: 0
+  }
 
-    componentDidMount() {
-      // Add and store event listener
-      this.volEvent = VolumeControlEvents.addListener(
-        "VolumeChanged",
-        this.volumeEvent
-      );
-    }
+  async componentDidMount() {
+    this.setState({
+      volume: await VolumeControl.getVolume()
+    });
+
+    // Add and store event listener
+    this.volEvent = VolumeControlEvents.addListener(
+      "VolumeChanged",
+      this.volumeEvent
+    );
+  }
 
   // Updates Slider UI when hardware buttons change volume
   volumeEvent = event => {
