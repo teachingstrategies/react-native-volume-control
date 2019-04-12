@@ -102,13 +102,11 @@ public class RNVolumeControlModule extends ReactContextBaseJavaModule
 
   @ReactMethod
   public void change(float volume) {
-    unregisterVolumeReceiver();
     try {
       am.setStreamVolume(AudioManager.STREAM_MUSIC, (int) (volume * max_volume), 0);
     } catch (Exception e) {
       Log.e(TAG, "Error Setting Volume", e);
     }
-    registerVolumeReceiver();
   }
 
   private float getNormalizedVolume() {
